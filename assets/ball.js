@@ -4,8 +4,8 @@ class Ball {
         xSpeed = 5,
         ySpeed = 5,
         growth = 1,
-        x = 40,
-        y = 40,
+        x = width/2,
+        y = height/2,
         originalDiameter = 40) {
         this.diameter = diameter;
         this.xSpeed = xSpeed;
@@ -22,9 +22,7 @@ class Ball {
         g: 150,
         b: 200
     }
-    test() {
-        console.log("it works");
-    }
+   
     mouseClicked() {
         this.on = !this.on;
     }
@@ -60,7 +58,7 @@ class Ball {
         this.diameter += this.growth;   //for constant growth
     }
 
-    bounce() {
+    bounce(bool=false) {
 
         /*  //for no screen overflow,setting max values
           var radius = this.diameter;
@@ -69,7 +67,7 @@ class Ball {
           var minX = this.x - radius;
           var minY = this.y - radius; */
 
-        if (this.x >= width || this.x <= 0) {
+        if (this.x >= width || this.x <= 0 || bool==true) {
             this.xSpeed *= -1;
             this.colorChange(true);
         }
